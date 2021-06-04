@@ -1,3 +1,5 @@
+import { programsConfig } from '../programs/programs.config';
+
 export const taskbarConfig = {
     actions: {
         start: {
@@ -43,20 +45,7 @@ export const taskbarConfig = {
             ),
         },
     },
-    programs: [
-        {
-            id: 'explorer',
-            tooltip: 'File Explorer',
-        },
-        {
-            id: 'chrome',
-            tooltip: 'Google Chrome',
-        },
-        {
-            id: 'spotify',
-            tooltip: 'Google Chrome',
-        },
-    ],
+    programs: programsConfig,
     tray: {
         'show-hidden': 'show',
         network: 'network',

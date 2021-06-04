@@ -8,6 +8,7 @@ const ActionsBar = () => (
                 key={actionID}
                 start={actionID === 'start'}
                 tooltip={taskbarConfig.actions[actionID].tooltip}
+                width="12.5"
             >
                 {taskbarConfig.actions[actionID].icon}
             </TaskbarButton>
