@@ -5,32 +5,7 @@ import DisplayPopupIcon from './DisplayPopupIcon';
 import { usePopper } from 'react-popper';
 import { match } from '../../../util/match';
 import SystemTrayMenu from './SystemTrayMenu';
-import useClock from '../../../hooks/useClock';
-
-const ClockMenu = () => {
-    const dateTime = useClock();
-
-    return (
-        <div className="flex pt-4 px-6  w-[22.5rem] h-[32rem] text-gray-100">
-            <div>
-                <span className="block text-5xl font-light">
-                    {dateTime.toLocaleString([], {
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        second: '2-digit',
-                    })}
-                </span>
-                <span className="block mt-2 text-blue-300">
-                    {dateTime.toLocaleString([], {
-                        day: '2-digit',
-                        month: 'long',
-                        year: 'numeric',
-                    })}
-                </span>
-            </div>
-        </div>
-    );
-};
+import ClockMenu from './ClockMenu';
 
 const TaskbarPopupButton = ({ tooltip = '', width, id, placement }) => {
     const [referenceElement, setReferenceElement] = useState();

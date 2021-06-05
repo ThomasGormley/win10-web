@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.2.0",
+    "@veccu/react-calendar": "^2.3.0",
     "classnames": "^2.3.1",
     "clsx": "^1.1.1",
     "react": "^17.0.0",
