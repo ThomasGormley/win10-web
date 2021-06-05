@@ -6,10 +6,12 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^1.2.0",
     "classnames": "^2.3.1",
     "clsx": "^1.1.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
+    "react-popper": "^2.2.5",
     "vite-react-jsx": "^1.1.1"
   },
   "devDependencies": {

@@ -1,11 +1,10 @@
-import clsx from 'clsx';
-import { taskbarConfig } from '../../data/taskbar/taskbar.config';
-import TaskbarButton from './TaskbarButton';
+import { taskbarConfig } from '../../../data/taskbar/taskbar.config';
+import TaskbarProgramButton from './TaskbarProgramButton';
 
 const ProgramsBar = () => (
     <div className="flex items-center align-middle">
         {taskbarConfig.programs.map((program) => (
-            <TaskbarButton
+            <TaskbarProgramButton
                 key={program.id}
                 id={program.id}
                 tooltip={program.tooltip}
@@ -16,7 +15,7 @@ const ProgramsBar = () => (
                     src={`/assets/icons/${program.id}/256.png`}
                     alt={`${program.tooltip} app icon`}
                 />
-            </TaskbarButton>
+            </TaskbarProgramButton>
         ))}
     </div>
 );
