@@ -22,8 +22,9 @@ const TaskbarPopupButton = ({ tooltip = '', width, id, placement }) => {
                         title={tooltip}
                         ref={setReferenceElement}
                         className={clsx(
-                            'h-10 relative cursor-default transition duration-150 hover:bg-white hover:bg-opacity-[0.15] text-gray-100 focus:ring-2 focus:ring-inset focus:ring-gray-100 focus:outline-none',
+                            'h-10 relative cursor-default transition duration-150 hover:bg-white hover:bg-opacity-[0.15] text-gray-100 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gray-100 focus:outline-none',
                             { [width]: width },
+                            { 'hover:text-[#00ADEF]': id === 'start' },
                         )}
                     >
                         <span className="flex justify-center">
