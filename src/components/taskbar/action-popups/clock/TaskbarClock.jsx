@@ -1,4 +1,4 @@
-import useClock from '../../../hooks/useClock';
+import useClock from '../../../../hooks/useClock';
 
 const TaskbarClock = () => {
     const dateTime = useClock();

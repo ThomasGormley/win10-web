@@ -4,8 +4,9 @@ import { Fragment, useState } from 'react';
 import DisplayPopupIcon from './DisplayPopupIcon';
 import { usePopper } from 'react-popper';
 import { match } from '../../../util/match';
-import SystemTrayMenu from './SystemTrayMenu';
-import ClockMenu from './ClockMenu';
+import SystemTrayMenu from '../action-popups/system-tray/SystemTrayMenu';
+import ClockMenu from '../action-popups/clock/ClockMenu';
+import SearchMenu from './search/SearchMenu';
 
 const TaskbarPopupButton = ({ tooltip = '', width, id, placement }) => {
     const [referenceElement, setReferenceElement] = useState();
@@ -25,7 +26,9 @@ const TaskbarPopupButton = ({ tooltip = '', width, id, placement }) => {
                             { [width]: width },
                         )}
                     >
-                        <DisplayPopupIcon id={id} />
+                        <span className="flex justify-center">
+                            <DisplayPopupIcon id={id} />
+                        </span>
                     </Popover.Button>
 
                     {open && (
@@ -56,7 +59,7 @@ const TaskbarPopupButton = ({ tooltip = '', width, id, placement }) => {
                                         return <SystemTrayMenu />;
                                     },
                                     search() {
-                                        return <SystemTrayMenu />;
+                                        return <SearchMenu />;
                                     },
                                     ['system-tray']() {
                                         return <SystemTrayMenu />;

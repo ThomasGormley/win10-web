@@ -1,5 +1,5 @@
 import { Popover } from '@headlessui/react';
-import { taskbarConfig } from '../../../data/taskbar/taskbar.config';
+import { taskbarConfig } from '../../../../data/taskbar/taskbar.config';
 
 const SystemTrayMenu = () => (
     <div className="grid items-center content-center grid-cols-3 p-[1px] justify-items-center">

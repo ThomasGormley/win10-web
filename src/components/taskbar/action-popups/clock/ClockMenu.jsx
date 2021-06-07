@@ -1,26 +1,25 @@
 import useCalendar from '@veccu/react-calendar';
-import useClock from '../../../hooks/useClock';
-import { format, getDate, isToday, isSameMonth } from 'date-fns';
-import ChevronUpIcon from '../../icons/ChevronUpIcon';
+import useClock from '../../../../hooks/useClock';
+import { format, getDate } from 'date-fns';
+import { ChevronUpIcon } from '../../../icons';
 import clsx from 'clsx';
 const ClockMenu = () => {
     const dateTime = useClock();
-    const { headers, body, view, navigation, cursorDate, day } = useCalendar({
+    const { headers, body, navigation, cursorDate } = useCalendar({
         defaultWeekStart: 1,
     });
-    const {
-        headers: headersNext,
-        body: bodyNext,
-        view: viewNext,
-    } = useCalendar({
-        defaultWeekStart: 1,
-    });
+    // const {
+    //     headers: headersNext,
+    //     body: bodyNext,
+    //     view: viewNext,
+    // } = useCalendar({
+    //     defaultWeekStart: 1,
+    // });
     const { toNext, toPrev } = navigation;
     return (
         <div className="flex flex-col w-[22.5rem] divide-y divide-white divide-opacity-[0.18]   text-gray-300">
             {/* Top Clock */}
             <div className="px-6 py-5 ">
-                {JSON.stringify(cursorDate.getFullYear(), null, 2)}
                 <span className="block text-5xl font-light text-gray-100">
                     {dateTime.toLocaleString([], {
                         hour: '2-digit',
@@ -47,14 +46,14 @@ const ClockMenu = () => {
                         <button
                             onClick={() => toPrev()}
                             type="button"
-                            className="text-gray-400 transition duration-100 hover:text-gray-100"
+                            className="text-gray-400 transition duration-100 outline-none hover:text-gray-100 focus:ring ring-white focus:outline-none"
                         >
                             <ChevronUpIcon className="w-6 h-6" />
                         </button>
                         <button
                             onClick={() => toNext()}
                             type="button"
-                            className="text-gray-400 transition duration-100 hover:text-gray-100"
+                            className="text-gray-400 transition duration-100 outline-none hover:text-gray-100 focus:ring ring-white focus:outline-none"
                         >
                             <ChevronUpIcon className="w-6 h-6 transform rotate-180" />
                         </button>
