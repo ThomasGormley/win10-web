@@ -18,10 +18,14 @@ export const processesSlice = createSlice({
         stopProcess: (state, action) => {
             state[action.payload] = false;
         },
+        toggleProcess: (state, action) => {
+            state[action.payload] = !state[action.payload];
+        },
     },
 });
 
 // Action creators are generated for each case reducer function
-export const { startProcess, stopProcess } = processesSlice.actions;
+export const { startProcess, stopProcess, toggleProcess } =
+    processesSlice.actions;
 
 export default processesSlice.reducer;

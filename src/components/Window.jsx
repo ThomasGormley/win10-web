@@ -54,10 +54,8 @@ const Window = ({
                 setWindowIsFocused(id);
             }}
         >
-            {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
             <div
-                role="menu"
-                className={'w-full h-full bg-transparent'}
+                className="w-full h-full bg-transparent"
                 tabIndex={-1}
                 ref={containerRef}
                 onClick={() => setWindowIsFocused(id)}

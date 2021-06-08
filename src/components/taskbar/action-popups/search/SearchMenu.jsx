@@ -79,13 +79,13 @@ const SearchMenu = () => {
     return (
         <div className="flex flex-col h-[640px] w-[785px] text-gray-100">
             {/* Tab Navigation */}
-            <div className="bg-gray-800">
+            <div className="bg-[#212121]">
                 <div className="px-2">
                     {tabs.map((tab) => (
                         <button
                             type="button"
                             className={clsx(
-                                'px-2 py-3 relative text-sm focus:ring-2 z-10 focus:ring-inset focus:ring-gray-100 focus:outline-none text-gray-400 cursor-default hover:text-gray-100',
+                                'px-2 py-3 relative text-sm focus-visible:ring-2 z-10 focus-visible:ring-inset focus-visible:ring-gray-100 focus:outline-none text-gray-400 cursor-default hover:text-gray-100',
                                 activeTab === tab &&
                                     'border-b-2 border-blue-500',
                             )}

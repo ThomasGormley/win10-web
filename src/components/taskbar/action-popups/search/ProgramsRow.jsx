@@ -1,22 +1,30 @@
-const ProgramsRow = ({ programs }) => (
-    <div className="divide-y-[1px] divide-gray-500 divide-opacity-50">
-        {programs.slice(0, 4).map((program) => (
-            <div key={program.id}>
-                <button
-                    type="button"
-                    key={program.id}
-                    className="flex items-center justify-start w-full h-auto px-3 py-4 space-x-2 rounded hover:bg-gray-500 bg-opacity-70"
-                >
-                    <img
-                        className="object-contain w-8 h-8"
-                        src={`/assets/icons/${program.id}/256.png`}
-                        alt={`${program.tooltip} app icon`}
-                    />
-                    <span className="text-sm">{program.tooltip}</span>
-                </button>
-            </div>
-        ))}
-    </div>
-);
+import { useDispatch } from 'react-redux';
+import { toggleProcess } from '../../../../stores/processes.slice';
+
+const ProgramsRow = ({ programs }) => {
+    const dispatch = useDispatch();
+
+    return (
+        <div className="divide-y-[1px] divide-gray-500 divide-opacity-50">
+            {programs.slice(0, 4).map(({ id, tooltip }) => (
+                <div key={id}>
+                    <button
+                        onClick={() => dispatch(toggleProcess(id))}
+                        type="button"
+                        key={id}
+                        className="flex items-center justify-start w-full h-auto px-3 py-4 space-x-2 rounded hover:bg-gray-300 hover:bg-opacity-50 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gray-100 focus:outline-none"
+                    >
+                        <img
+                            className="object-contain w-8 h-8"
+                            src={`/assets/icons/${id}/256.png`}
+                            alt={`${tooltip} app icon`}
+                        />
+                        <span className="text-sm">{tooltip}</span>
+                    </button>
+                </div>
+            ))}
+        </div>
+    );
+};
 
 export default ProgramsRow;

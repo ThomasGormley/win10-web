@@ -7,13 +7,27 @@ import { match } from '../../../util/match';
 import SystemTrayMenu from '../action-popups/system-tray/SystemTrayMenu';
 import ClockMenu from '../action-popups/clock/ClockMenu';
 import SearchMenu from './search/SearchMenu';
+import { searchPopupConfig } from '../../../data/taskbar/search.config';
+import { startPopupConfig } from '../../../data/taskbar/start.config';
 
 const TaskbarPopupButton = ({ tooltip = '', width, id, placement }) => {
+    const isSearchPopup = id === searchPopupConfig.id;
+    const isStartPopup = id === startPopupConfig.id;
+
     const [referenceElement, setReferenceElement] = useState();
     const [popperElement, setPopperElement] = useState();
     const { styles, attributes } = usePopper(referenceElement, popperElement, {
         placement,
     });
+    const backgroundStyle = {
+        background: `${
+            isSearchPopup
+                ? 'radial-gradient(circle, rgba(47,47,47,1) 0%, rgba(44,44,44,1) 100%)'
+                : 'rgba(38, 38, 38, 0.8)'
+        }`,
+        backdropFilter: 'blur(8.0px)',
+        WebkitBackdropFilter: 'blur(10.0px)',
+    };
     return (
         <Popover as={Fragment}>
             {({ open }) => (
@@ -24,7 +38,7 @@ const TaskbarPopupButton = ({ tooltip = '', width, id, placement }) => {
                         className={clsx(
                             'h-10 relative cursor-default transition duration-150 hover:bg-white hover:bg-opacity-[0.15] text-gray-100 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gray-100 focus:outline-none',
                             { [width]: width },
-                            { 'hover:text-[#00ADEF]': id === 'start' },
+                            { 'hover:text-[#00ADEF]': isStartPopup },
                         )}
                     >
                         <span className="flex justify-center">
@@ -45,12 +59,11 @@ const TaskbarPopupButton = ({ tooltip = '', width, id, placement }) => {
                                 ref={setPopperElement}
                                 style={{
                                     ...styles.popper,
-                                    background: 'rgba( 8, 8, 4, 0.70 )',
                                     boxShadow:
-                                        '0 8px 32px 0 rgba( 31, 38, 135, 0.37 )',
-                                    backdropFilter: 'blur(10.0px)',
-                                    WebkitBackdropFilter: 'blur(10.0px)',
+                                        '0 8px 10px 0 rgba( 0, 0, 0, 0.37 )',
+
                                     border: '1px solid rgba( 255, 255, 255, 0.18 )',
+                                    ...backgroundStyle,
                                 }}
                                 {...attributes.popper}
                                 className="z-10 w-auto h-auto bg-white"
