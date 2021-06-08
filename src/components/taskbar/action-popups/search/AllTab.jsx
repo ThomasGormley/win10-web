@@ -21,7 +21,7 @@ const AllTab = () => (
                 <span className="text-sm text-gray-100">Quick Searches</span>
 
                 <div className="divide-y-[1px] divide-gray-500 divide-opacity-50">
-                    {taskbarConfig.programs.map((program) => (
+                    {taskbarConfig.programs.slice(0, 4).map((program) => (
                         <div key={program.id}>
                             <button
                                 type="button"

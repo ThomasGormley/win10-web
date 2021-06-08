@@ -1,4 +1,3 @@
-import { Popover } from '@headlessui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { taskbarConfig } from '../../../../data/taskbar/taskbar.config';
 import { startProcess, stopProcess } from '../../../../stores/processes.slice';
@@ -31,7 +30,7 @@ const SystemTrayMenu = () => {
                             <img
                                 className="items-center object-contain w-4 h-4"
                                 src={`/assets/icons/${id}/256.png`}
-                                alt={`${tooltip} app icon`}
+                                alt={`${tooltip} program icon`}
                             />
                         </span>
                     </button>

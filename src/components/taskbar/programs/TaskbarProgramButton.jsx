@@ -9,7 +9,6 @@ const TaskbarProgramButton = ({ children, tooltip = '', width, id }) => {
     const [mouseOver, setMouseOver] = useState(false);
 
     const handleStartProcess = () => {
-        console.log(processIsRunning);
         if (processIsRunning) {
             dispatch(stopProcess(id));
         } else {
@@ -24,7 +23,7 @@ const TaskbarProgramButton = ({ children, tooltip = '', width, id }) => {
             type="button"
             title={tooltip}
             className={clsx(
-                'h-10 relative cursor-default transition duration-150 hover:bg-white hover:bg-opacity-[0.15] text-gray-100 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gray-100 focus:outline-none',
+                'h-10 relative cursor-default transition duration-150 hover:bg-white hover:bg-opacity-[0.15] focus:bg-opacity-5 text-gray-100 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gray-100 focus:outline-none',
                 { [width]: width },
             )}
         >

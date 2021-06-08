@@ -1,6 +1,6 @@
 const ProgramsRow = ({ programs }) => (
     <div className="divide-y-[1px] divide-gray-500 divide-opacity-50">
-        {programs.map((program) => (
+        {programs.slice(0, 4).map((program) => (
             <div key={program.id}>
                 <button
                     type="button"
