@@ -8,7 +8,16 @@ export default defineConfig({
     plugins: [reactRefresh(), reactJsx()],
     build: {
         rollupOptions: {
-            plugins: [resolve()],
+            plugins: [
+                resolve({
+                    // pass custom options to the resolve plugin
+                    customResolveOptions: {
+                        moduleDirectory: 'node_modules',
+                    },
+                }),
+            ],
+            // indicate which modules should be treated as external
+            external: ['@popperjs/core'],
         },
     },
 });
