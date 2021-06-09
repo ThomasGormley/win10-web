@@ -11,6 +11,7 @@
         "@reduxjs/toolkit": "^1.6.0",
         "@veccu/react-calendar": "^2.3.0",
         "clsx": "^1.1.1",
+        "date-fns": "^2.22.1",
         "react": "^17.0.0",
         "react-dom": "^17.0.0",
         "react-popper": "^2.2.5",
