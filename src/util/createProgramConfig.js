@@ -12,5 +12,10 @@ export const createProgramConfig = (config) => ({
             width: 'w-auto',
         },
     },
+
+    tile: {
+        'col-span': 1,
+        'row-span': 1,
+    },
     ...config,
 });

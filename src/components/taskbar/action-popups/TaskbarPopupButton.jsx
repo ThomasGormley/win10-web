@@ -9,6 +9,7 @@ import ClockMenu from '../action-popups/clock/ClockMenu';
 import SearchMenu from './search/SearchMenu';
 import { searchPopupConfig } from '../../../data/taskbar/search.config';
 import { startPopupConfig } from '../../../data/taskbar/start.config';
+import StartMenu from './start/StartMenu';
 
 const TaskbarPopupButton = ({ tooltip = '', width, id, placement }) => {
     const isSearchPopup = id === searchPopupConfig.id;
@@ -23,6 +24,8 @@ const TaskbarPopupButton = ({ tooltip = '', width, id, placement }) => {
         background: `${
             isSearchPopup
                 ? 'radial-gradient(circle, rgba(47,47,47,1) 0%, rgba(44,44,44,1) 100%)'
+                : isStartPopup
+                ? 'rgba(36, 36, 36, 0.9)'
                 : 'rgba(38, 38, 38, 0.8)'
         }`,
         backdropFilter: 'blur(8.0px)',
@@ -70,7 +73,7 @@ const TaskbarPopupButton = ({ tooltip = '', width, id, placement }) => {
                             >
                                 {match(id, {
                                     start() {
-                                        return <SystemTrayMenu />;
+                                        return <StartMenu />;
                                     },
                                     search() {
                                         return <SearchMenu />;

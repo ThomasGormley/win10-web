@@ -6,6 +6,7 @@ const Taskbar = () => (
     <div className="h-10 bg-black bg-opacity-75">
         <div className="flex flex-row justify-between h-full">
             <div className="flex space-x-1">
+                {/* Start & Search actions */}
                 <PopupActions config={taskbarConfig.actions} />
                 <ProgramsBar />
             </div>
