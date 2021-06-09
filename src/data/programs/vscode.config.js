@@ -7,4 +7,17 @@ export const vscodeProgramConfig = createProgramConfig({
 
     height: 600,
     width: 800,
+
+    window: {
+        menu: [
+            'File',
+            'Edit',
+            'Selection',
+            'View',
+            'Go',
+            'Run',
+            'Terminal',
+            'Help',
+        ],
+    },
 });

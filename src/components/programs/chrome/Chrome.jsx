@@ -4,7 +4,7 @@ import { stopProcess } from '../../../stores/processes.slice';
 import { SquareIcon, UnderscoreIcon, XIcon } from '../../icons';
 import { vscodeProgramConfig } from '../../../data/programs/vscode.config';
 
-const VSCode = () => {
+const Chrome = () => {
     const { id, window, title } = vscodeProgramConfig;
     const dispatch = useDispatch();
     return (
@@ -59,10 +59,10 @@ const VSCode = () => {
             <iframe
                 className="w-full h-full"
                 title="VSCode Window"
-                src="https://github1s.com/thomasgormley/win10-web"
+                src="http://www.google.com/custom?q=&btnG=Search"
             ></iframe>
         </div>
     );
 };
 
-export default VSCode;
+export default Chrome;

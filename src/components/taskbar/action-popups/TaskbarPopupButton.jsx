@@ -60,7 +60,7 @@ const TaskbarPopupButton = ({ tooltip = '', width, id, placement }) => {
                                 style={{
                                     ...styles.popper,
                                     boxShadow:
-                                        '0 8px 10px 0 rgba( 0, 0, 0, 0.37 )',
+                                        '0 -1px 10px 0 rgba( 0, 0, 0, 0.2 )',
 
                                     border: '1px solid rgba( 255, 255, 255, 0.18 )',
                                     ...backgroundStyle,

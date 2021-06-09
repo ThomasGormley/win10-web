@@ -1,13 +1,27 @@
-import { programsConfig } from '../programs/programs.config';
-import { clockPopupConfig } from './clock.config';
-import { searchPopupConfig } from './search.config';
-import { startPopupConfig } from './start.config';
-import { systemTrayConfig } from './system-tray.config';
+import {
+    chromeProgramConfig,
+    explorerProgramConfig,
+    spotifyProgramConfig,
+    vscodeProgramConfig,
+    bashProgramConfig,
+} from '../programs';
+import {
+    clockPopupConfig,
+    searchPopupConfig,
+    startPopupConfig,
+    systemTrayConfig,
+} from './index';
 
 export const taskbarConfig = {
     actions: [startPopupConfig, searchPopupConfig],
 
-    programs: programsConfig,
+    programs: [
+        bashProgramConfig,
+        explorerProgramConfig,
+        spotifyProgramConfig,
+        vscodeProgramConfig,
+        chromeProgramConfig,
+    ],
 
     'system-tray': [systemTrayConfig],
 

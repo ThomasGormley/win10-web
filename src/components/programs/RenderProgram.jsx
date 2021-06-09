@@ -1,5 +1,6 @@
 import { Fragment, lazy, Suspense } from 'react';
 import { match } from '../../util/match';
+import Chrome from './chrome/Chrome';
 
 const VSCode = lazy(() => import('./vscode/VSCode'));
 const Placeholder = lazy(() => import('./Placeholder'));
@@ -14,7 +15,7 @@ const RenderProgram = ({ program }) => (
                 return <VSCode />;
             },
             chrome() {
-                return <Placeholder program={program} />;
+                return <Chrome />;
             },
             [match.__]() {
                 return <Placeholder program={program} />;

@@ -8,13 +8,13 @@ const XIcon = ({ className }) => (
         <path
             fill="none"
             strokeMiterlimit="10"
-            strokeWidth="4"
+            strokeWidth="8"
             d="M9.37 9.37L54.63 54.63"
         ></path>
         <path
             fill="none"
             strokeMiterlimit="10"
-            strokeWidth="4"
+            strokeWidth="8"
             d="M9.37 54.63L54.63 9.37"
         ></path>
     </svg>

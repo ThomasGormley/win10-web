@@ -10,7 +10,7 @@ const SquareIcon = ({ className }) => (
             fill="none"
             stroke="currentColor"
             strokeMiterlimit="10"
-            strokeWidth="4"
+            strokeWidth="8"
             d="M6 6H58V58H6z"
         ></path>
     </svg>

@@ -10,7 +10,7 @@ const UnderscoreIcon = ({ className }) => (
             fill="none"
             stroke="currentColor"
             strokeMiterlimit="10"
-            strokeWidth="4"
+            strokeWidth="8"
             d="M0 32L64 32"
         ></path>
     </svg>
