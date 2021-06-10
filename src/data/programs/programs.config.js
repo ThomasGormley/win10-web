@@ -8,6 +8,7 @@ import { calendarProgramConfig } from './calendar.config';
 import { mailProgramConfig } from './mail.config';
 import { weatherProgramConfig } from './weather.config';
 import { msstoreProgramConfig } from './ms-store.config';
+import { githubProgramConfig } from './github.config';
 
 export const programsConfig = [
     chromeProgramConfig,
@@ -20,4 +21,5 @@ export const programsConfig = [
     mailProgramConfig,
     calendarProgramConfig,
     bashProgramConfig,
+    githubProgramConfig,
 ];

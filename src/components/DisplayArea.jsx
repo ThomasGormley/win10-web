@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { programsConfig } from '../data/programs/programs.config';
-import { toggleProcess } from '../stores/processes.slice';
+import DesktopShortcut from './DesktopShortcut';
 import Window from './Window';
 
 const DisplayArea = () => {
@@ -13,32 +13,12 @@ const DisplayArea = () => {
         setFocusedWindowZIndex((prev) => prev + 2);
     }, [focusedWindow]);
 
-    const dispatch = useDispatch();
-
     return (
-        <div className="relative flex-1 overflow-y-hidden">
+        <div className="relative h-full overflow-hidden ">
             <div className="p-2">
-                <div className="grid grid-cols-1 gap-1 max-h-[95vh]">
-                    {programsConfig.map(({ id, title }) => (
-                        <button
-                            key={id}
-                            onClick={() => dispatch(toggleProcess(id))}
-                            className="flex flex-col items-center justify-center w-20 h-20 pb-4 text-gray-100 focus:outline-none overflow-ellipsis"
-                        >
-                            <img
-                                className="object-contain w-8 h-8 "
-                                src={`/assets/icons/${id}/256.png`}
-                                alt={`${title} program icon`}
-                            />
-                            <span
-                                className="mt-1 text-xs"
-                                style={{
-                                    textShadow: '0px 1px 5px rgba(0,0,0,0.7)',
-                                }}
-                            >
-                                {title}
-                            </span>
-                        </button>
+                <div className="inline-flex flex-col flex-wrap max-h-[95vh]">
+                    {programsConfig.map((config) => (
+                        <DesktopShortcut config={config} key={config.id} />
                     ))}
                 </div>
             </div>
