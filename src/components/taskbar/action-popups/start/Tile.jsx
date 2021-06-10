@@ -1,11 +1,15 @@
 import { useDispatch } from 'react-redux';
 import { toggleProcess } from '../../../../stores/processes.slice';
 import { match } from '../../../../util/match';
+import WeatherTile from './WeatherTile';
 
 const Tile = ({ config }) =>
     // const { title, tile, id } = config;
     // const dispatch = useDispatch();
     match(config.id, {
+        weather() {
+            return <WeatherTile config={config} />;
+        },
         [match.__]() {
             return <Tile.Placeholder config={config} />;
         },

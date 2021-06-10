@@ -4,7 +4,7 @@ import Wallpaper from '../components/Wallpaper';
 
 const Desktop = () => (
     <>
-        <section className="flex flex-col w-full h-full ">
+        <section className="flex flex-col h-screen">
             <DisplayArea />
             <Taskbar />
         </section>

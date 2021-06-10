@@ -5,7 +5,7 @@ import Locked from './Locked';
 function Windows10() {
     const { desktopIsLocked } = useUserState();
     return (
-        <main className="w-screen h-screen max-h-screen overflow-hidden">
+        <main className="h-screen max-h-screen overflow-hidden">
             {desktopIsLocked ? <Locked /> : <Desktop />}
         </main>
     );

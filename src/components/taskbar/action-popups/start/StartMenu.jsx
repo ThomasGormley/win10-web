@@ -19,7 +19,7 @@ const StartMenu = () => {
                 <div>
                     <button
                         type="button"
-                        className="p-3 hover:bg-white hover:bg-opacity-20 hover:transition hover:duration-100 hover:ring-white hover:ring-inset hover:ring-opacity-60"
+                        className="p-3 hover:bg-white hover:bg-opacity-20 focus:outline-none hover:transition hover:duration-100 hover:ring-white hover:ring-inset hover:ring-opacity-60"
                     >
                         <MenuIcon className="w-4 h-4 " />
                     </button>
@@ -30,8 +30,8 @@ const StartMenu = () => {
                             key={action}
                             type="button"
                             className={clsx(
-                                'hover:bg-white hover:bg-opacity-20',
-                                action === 'User' ? 'p-2.5' : 'p-3 ',
+                                'hover:bg-white hover:bg-opacity-20 focus:outline-none',
+                                action === 'User' ? 'p-2.5' : 'p-4 ',
                             )}
                         >
                             {match(action, {
