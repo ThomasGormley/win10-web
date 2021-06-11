@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 import { useDispatch } from 'react-redux';
 import { SquareIcon, UnderscoreIcon, XIcon } from '../icons';
-import { stopProcess } from '../../stores/processes.slice';
+import { handleStopProcess } from '../../stores/actions';
 
 const Placeholder = ({ program }) => {
     const { id, title } = program;
@@ -37,7 +37,7 @@ const Placeholder = ({ program }) => {
                         <button
                             type="button"
                             className="h-full px-4 transition duration-100 hover:bg-gray-200 focus:outline-none"
-                            onClick={() => dispatch(stopProcess(id))}
+                            onClick={() => handleStopProcess(dispatch, program)}
                         >
                             <XIcon className="w-3 h-3" />
                         </button>

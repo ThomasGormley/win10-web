@@ -1,9 +1,11 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleProcess } from '../../../stores/processes.slice';
+import { handleStartProcess } from '../../../stores/actions';
 
-const TaskbarProgramButton = ({ children, tooltip = '', width, id }) => {
+const TaskbarProgramButton = ({ children, width, config }) => {
+    const { tooltip = '', id } = config;
+
     const processIsRunning = useSelector((state) => state.processes[id]);
     const dispatch = useDispatch();
     const [mouseOver, setMouseOver] = useState(false);
@@ -12,7 +14,7 @@ const TaskbarProgramButton = ({ children, tooltip = '', width, id }) => {
         <button
             onMouseEnter={() => setMouseOver(true)}
             onMouseLeave={() => setMouseOver(false)}
-            onClick={() => dispatch(toggleProcess(id))}
+            onClick={() => handleStartProcess(dispatch, config)}
             type="button"
             title={tooltip}
             className={clsx(

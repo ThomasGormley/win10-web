@@ -1,6 +1,7 @@
 export const createProgramConfig = (config) => ({
     shouldOpenWindow: true,
     resizable: true,
+    isPinnedToTaskbar: false,
 
     height: 400,
     width: 600,

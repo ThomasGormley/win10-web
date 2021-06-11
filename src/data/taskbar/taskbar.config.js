@@ -1,10 +1,4 @@
-import {
-    chromeProgramConfig,
-    explorerProgramConfig,
-    spotifyProgramConfig,
-    vscodeProgramConfig,
-    bashProgramConfig,
-} from '../programs';
+import { programsConfig } from '../programs';
 import {
     clockPopupConfig,
     searchPopupConfig,
@@ -15,13 +9,7 @@ import {
 export const taskbarConfig = {
     actions: [startPopupConfig, searchPopupConfig],
 
-    programs: [
-        bashProgramConfig,
-        explorerProgramConfig,
-        spotifyProgramConfig,
-        vscodeProgramConfig,
-        chromeProgramConfig,
-    ],
+    programs: programsConfig.filter((programs) => programs.isPinnedToTaskbar),
 
     'system-tray': [systemTrayConfig],
 

@@ -1,19 +1,14 @@
 import { useDispatch } from 'react-redux';
-import { toggleProcess } from '../stores/processes.slice';
+import { handleStartProcess } from '../stores/actions';
 
 const DesktopShortcut = ({ config }) => {
     const dispatch = useDispatch();
-    const { id, title, shouldOpenWindow, externalAction } = config;
-
-    const handleIconClick = () => {
-        if (shouldOpenWindow) return dispatch(toggleProcess(id));
-        return externalAction();
-    };
+    const { id, title } = config;
 
     return (
         <button
             key={id}
-            onClick={() => handleIconClick()}
+            onClick={() => handleStartProcess(dispatch, config)}
             className="flex flex-col items-center justify-center w-20 mb-6 text-gray-100 focus:outline-none"
         >
             <img

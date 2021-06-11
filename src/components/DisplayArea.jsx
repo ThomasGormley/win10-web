@@ -6,6 +6,8 @@ import Window from './Window';
 
 const DisplayArea = () => {
     const processes = useSelector((state) => state.processes);
+    const programs = useSelector((state) => state.taskbar);
+
     const [focusedWindow, setFocusedWindow] = useState('');
     const [focusedWindowZIndex, setFocusedWindowZIndex] = useState(-2);
 
@@ -20,6 +22,14 @@ const DisplayArea = () => {
                     {programsConfig.map((config) => (
                         <DesktopShortcut config={config} key={config.id} />
                     ))}
+
+                    <pre className="text-xs">
+                        {JSON.stringify(
+                            programs.map((program) => program.id),
+                            null,
+                            2,
+                        )}
+                    </pre>
                 </div>
             </div>
 

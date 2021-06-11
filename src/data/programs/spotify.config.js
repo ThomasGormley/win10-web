@@ -4,4 +4,5 @@ export const spotifyProgramConfig = createProgramConfig({
     id: 'spotify',
     tooltip: 'Spotify',
     title: 'Spotify',
+    isPinnedToTaskbar: true,
 });
