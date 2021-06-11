@@ -22,14 +22,6 @@ const DisplayArea = () => {
                     {programsConfig.map((config) => (
                         <DesktopShortcut config={config} key={config.id} />
                     ))}
-
-                    <pre className="text-xs">
-                        {JSON.stringify(
-                            programs.map((program) => program.id),
-                            null,
-                            2,
-                        )}
-                    </pre>
                 </div>
             </div>
 
