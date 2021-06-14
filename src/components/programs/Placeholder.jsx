@@ -35,7 +35,6 @@ const Placeholder = ({ program, maximiseWindow }) => {
                         <button
                             type="button"
                             onClick={() => {
-                                console.log('maximise');
                                 maximiseWindow();
                             }}
                             className="h-full px-4 transition duration-100 hover:bg-gray-200 focus:outline-none"
@@ -54,7 +53,7 @@ const Placeholder = ({ program, maximiseWindow }) => {
 
                 <div className="flex flex-col items-center justify-center h-full ">
                     <img
-                        className="object-contain w-[30%] h-[30%]"
+                        className="object-contain w-[30%] h-[30%] max-h-28"
                         src={`/assets/icons/${id}/256.png`}
                         alt={`${title} program icon`}
                     />

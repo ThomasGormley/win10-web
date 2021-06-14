@@ -8,7 +8,7 @@ const RenderProgram = ({ program, maximiseWindow }) => (
     <Suspense fallback={<Fragment></Fragment>}>
         {match(program.id, {
             vscode() {
-                return <VSCode />;
+                return <VSCode maximiseWindow={maximiseWindow} />;
             },
             [match.__]() {
                 return (

@@ -13,6 +13,9 @@ import ClockIcon from './ClockIcon';
 import SunIcon from './SunIcon';
 import PictureIcon from './PictureIcon';
 import PowerButtonIcon from './PowerButtonIcon';
+import NotificationIcon from './NotificationIcon';
+import ScreenIcon from './ScreenIcon';
+import WifiIcon from './WifiIcon';
 
 export {
     ChevronUpIcon,
@@ -30,4 +33,7 @@ export {
     MenuIcon,
     SettingsIcon,
     SquareIcon,
+    ScreenIcon,
+    WifiIcon,
+    NotificationIcon,
 };

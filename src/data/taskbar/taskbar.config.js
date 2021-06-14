@@ -5,6 +5,7 @@ import {
     startPopupConfig,
     systemTrayConfig,
 } from './index';
+import { notificationsPopupConfig } from './notifications.config';
 
 export const taskbarConfig = {
     actions: [startPopupConfig, searchPopupConfig],
@@ -15,10 +16,7 @@ export const taskbarConfig = {
 
     clock: [clockPopupConfig],
 
-    notifications: {
-        'show-hidden': 'show',
-        network: 'network',
-    },
+    notifications: [notificationsPopupConfig],
 
     desktop: {
         'show-hidden': 'show',

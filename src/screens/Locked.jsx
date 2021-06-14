@@ -13,10 +13,11 @@ const Locked = () => {
 
     const handleSignIn = () => {
         setLoading(true);
+        dispatch({ type: 'UNLOCK_DESKTOP' });
 
-        setTimeout(() => {
-            dispatch({ type: 'UNLOCK_DESKTOP' });
-        }, 1000);
+        // setTimeout(() => {
+        //     dispatch({ type: 'UNLOCK_DESKTOP' });
+        // }, 1000);
     };
 
     return (

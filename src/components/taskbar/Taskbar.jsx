@@ -14,6 +14,12 @@ const Taskbar = () => (
             <div className="flex space-x-[0.07rem]">
                 <PopupActions config={taskbarConfig['system-tray']} />
                 <PopupActions config={taskbarConfig.clock} />
+                <PopupActions config={taskbarConfig.notifications} />
+                <button
+                    type="button"
+                    aria-disabled
+                    className="w-1 ml-6 border-l border-gray-500 cursor-default hover:bg-white hover:bg-opacity-25"
+                />
             </div>
         </div>
     </div>

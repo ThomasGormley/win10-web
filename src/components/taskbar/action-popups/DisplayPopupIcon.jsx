@@ -1,5 +1,5 @@
 import { match } from '../../../util/match';
-import { ChevronUpIcon } from '../../icons/';
+import { ChevronUpIcon, NotificationIcon } from '../../icons/';
 import SearchIcon from '../../icons/SearchIcon';
 import StartIcon from '../../icons/StartIcon';
 import TaskbarClock from '../action-popups/clock/TaskbarClock';
@@ -17,6 +17,9 @@ const DisplayPopupIcon = ({ id }) =>
         },
         clock() {
             return <TaskbarClock />;
+        },
+        notifications() {
+            return <NotificationIcon className="w-auto h-4 px-4 " />;
         },
     });
 

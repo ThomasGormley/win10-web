@@ -5,7 +5,7 @@ import { SquareIcon, UnderscoreIcon, XIcon } from '../../icons';
 import { vscodeProgramConfig } from '../../../data/programs/vscode.config';
 import { motion } from 'framer-motion';
 
-const VSCode = () => {
+const VSCode = ({ maximiseWindow }) => {
     const { id, window, title, fmotion } = vscodeProgramConfig;
     const dispatch = useDispatch();
     return (
@@ -49,6 +49,9 @@ const VSCode = () => {
                     </button>
                     <button
                         type="button"
+                        onClick={() => {
+                            maximiseWindow();
+                        }}
                         className="h-full px-4 transition duration-100 hover:bg-gray-600 hover:transition hover:duration-75 focus:outline-none"
                     >
                         <SquareIcon className="w-[0.65rem] h-[0.65rem]" />
