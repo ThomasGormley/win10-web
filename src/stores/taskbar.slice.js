@@ -19,10 +19,16 @@ export const taskbarSlice = createSlice({
     name: 'taskbar',
     initialState: [...taskbarConfig.programs],
     reducers: {
+        // payload = program config
         addProgramToTaskbar: (state, action) => {
-            console.log(`action.payload`, action.payload);
+            const programIsOnTaskbar = state.filter(
+                (program) => program.id === action.payload.id,
+            );
+            if (programIsOnTaskbar.length) return;
+
             state.push(action.payload);
         },
+        // payload = program ID
         removeProgramFromTaskbar: (state, action) =>
             state.filter((program) => program.id != action.payload),
     },

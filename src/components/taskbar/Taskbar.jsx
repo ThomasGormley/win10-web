@@ -3,7 +3,7 @@ import PopupActions from './action-popups/PopupsBar';
 import ProgramsBar from './programs/ProgramsBar';
 
 const Taskbar = () => (
-    <div className="h-10 bg-black bg-opacity-75">
+    <div className="h-10 bg-black bg-opacity-75" id="taskbar">
         <div className="flex flex-row justify-between h-full">
             <div className="flex space-x-1">
                 {/* Start & Search actions */}

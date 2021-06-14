@@ -69,7 +69,7 @@ const TaskbarPopupButton = ({ tooltip = '', width, id, placement }) => {
                                     ...backgroundStyle,
                                 }}
                                 {...attributes.popper}
-                                className="z-10 w-auto h-auto bg-white"
+                                className="z-[999] w-auto h-auto bg-white"
                             >
                                 {match(id, {
                                     start() {

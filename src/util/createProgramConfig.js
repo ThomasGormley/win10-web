@@ -18,5 +18,13 @@ export const createProgramConfig = (config) => ({
         'col-span': 1,
         'row-span': 1,
     },
+
+    fmotion: {
+        variants: {
+            hidden: { scale: '50%' },
+            visible: { scale: '100%' },
+        },
+    },
+
     ...config,
 });

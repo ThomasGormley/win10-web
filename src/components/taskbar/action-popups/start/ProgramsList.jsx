@@ -56,7 +56,7 @@ const ProgramsList = () => {
                         onClick={() =>
                             handleStartProcess(dispatch, { id, ...config })
                         }
-                        className="flex w-full py-2 pl-1 pr-4 cursor-default hover:transition hover:duration-100 hover:ring-white hover:ring-1 hover:ring-inset hover:ring-opacity-20 hover:bg-white hover:bg-opacity-20 hover"
+                        className="flex w-full py-2 pl-1 pr-16 cursor-default hover:transition hover:duration-100 hover:ring-white hover:ring-1 hover:ring-inset hover:ring-opacity-20 hover:bg-white hover:bg-opacity-20 hover"
                     >
                         <div className="flex items-center space-x-2 ">
                             <img

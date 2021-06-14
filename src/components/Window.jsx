@@ -1,8 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Rnd } from 'react-rnd';
+import useMaximizeWindow from '../hooks/useMaximiseWindow';
 import { randint } from '../util/randint';
 import RenderProgram from './programs/RenderProgram';
 
+// Much of the logic used in this component was taken directly from macos-web
+// https://github.com/puruvj/macos-web
 const Window = ({
     program,
     windowIsFocused,
@@ -14,6 +17,8 @@ const Window = ({
     const [windowZIndex, setWindowZIndex] = useState(0);
     const windowRef = useRef();
     const containerRef = useRef();
+
+    const maximiseWindow = useMaximizeWindow(windowRef);
 
     const randX = useMemo(
         () => randint(0, document.body.clientWidth - width),
@@ -60,7 +65,10 @@ const Window = ({
                 ref={containerRef}
                 onClick={() => setWindowIsFocused(id)}
             >
-                <RenderProgram program={program} />
+                <RenderProgram
+                    program={program}
+                    maximiseWindow={maximiseWindow}
+                />
             </div>
         </Rnd>
     );

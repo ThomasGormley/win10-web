@@ -3,12 +3,18 @@ import { useDispatch } from 'react-redux';
 import { stopProcess } from '../../../stores/processes.slice';
 import { SquareIcon, UnderscoreIcon, XIcon } from '../../icons';
 import { vscodeProgramConfig } from '../../../data/programs/vscode.config';
+import { motion } from 'framer-motion';
 
 const VSCode = () => {
-    const { id, window, title } = vscodeProgramConfig;
+    const { id, window, title, fmotion } = vscodeProgramConfig;
     const dispatch = useDispatch();
     return (
-        <div className="flex flex-col h-full bg-[#3C3C3C] shadow-2xl">
+        <motion.div
+            className="flex flex-col h-full bg-[#3C3C3C] shadow-2xl"
+            initial="hidden"
+            animate="visible"
+            variants={fmotion.variants}
+        >
             <div
                 className={clsx(
                     'flex items-center border-gray-400 justify-between h-7 text-gray-300 ',
@@ -61,7 +67,7 @@ const VSCode = () => {
                 title="VSCode Window"
                 src="https://github1s.com/thomasgormley/win10-web"
             ></iframe>
-        </div>
+        </motion.div>
     );
 };
 

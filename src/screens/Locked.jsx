@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Wallpaper from '../components/Wallpaper';
 import { useUserState } from '../context/user-context';
 
@@ -6,10 +6,18 @@ import { useUserState } from '../context/user-context';
 
 const Locked = () => {
     const { dispatch } = useUserState();
-
+    const [loading, setLoading] = useState(false);
     useEffect(() => {
         preloadImage('/assets/screen-saver.png');
     }, []);
+
+    const handleSignIn = () => {
+        setLoading(true);
+
+        setTimeout(() => {
+            dispatch({ type: 'UNLOCK_DESKTOP' });
+        }, 1000);
+    };
 
     return (
         <section className="w-full h-full font-light text-white">
@@ -17,21 +25,31 @@ const Locked = () => {
                 <span className="w-[12rem] h-[12rem]">
                     <img
                         className="rounded-full"
-                        src="https://avatars.githubusercontent.com/u/6354097?v=4"
+                        src="/assets/icons/user-thumbnail.png"
                         alt="Thomas Gormley"
                     />
                 </span>
 
-                <h1 className="mt-4 text-4xl">Thomas</h1>
-                <button
-                    type="button"
-                    className="py-1 mt-3 text-sm bg-white bg-opacity-25 border border-transparent ring-transparent focus:outline-none px-7 border-1 ring-2 ring-transparen focus:border focus:border-black focus:ring-offset-0 focus:ring-1 focus:ring-white focus:border-1"
-                    onClick={() => {
-                        dispatch({ type: 'UNLOCK_DESKTOP' });
-                    }}
-                >
-                    Sign in
-                </button>
+                {!loading ? (
+                    <>
+                        <h1 className="mt-4 text-4xl">User</h1>
+                        <button
+                            type="button"
+                            className="py-1 mt-3 text-sm bg-white bg-opacity-25 border border-transparent ring-transparent focus:outline-none px-7 border-1 ring-2 ring-transparen focus:border focus:border-black focus:ring-offset-0 focus:ring-1 focus:ring-white focus:border-1"
+                            onClick={() => {
+                                handleSignIn();
+                            }}
+                        >
+                            Sign in
+                        </button>
+                    </>
+                ) : (
+                    <img
+                        src="/assets/loader.png"
+                        className="w-10 h-10 mt-3"
+                        alt=""
+                    />
+                )}
             </div>
 
             <Wallpaper img="locked" />

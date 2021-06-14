@@ -28,7 +28,7 @@ const WeatherTile = ({ config }) => {
 
     return (
         <div
-            className="flex flex-col w-full h-24 bg-blue-600"
+            className="flex flex-col w-full h-24 bg-blue-600 hover:ring hover:ring-white hover:ring-inset hover:ring-opacity-60 hover:transition hover:duration-75"
             style={{
                 gridColumn: `span ${tile['col-span']} / span ${tile['col-span']}`,
                 gridRow: `span ${tile['row-span']} / span ${tile['row-span']}`,

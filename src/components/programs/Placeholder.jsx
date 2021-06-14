@@ -1,17 +1,21 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import clsx from 'clsx';
 import { useDispatch } from 'react-redux';
 import { SquareIcon, UnderscoreIcon, XIcon } from '../icons';
 import { handleStopProcess } from '../../stores/actions';
+import { motion } from 'framer-motion';
 
-const Placeholder = ({ program }) => {
-    const { id, title } = program;
+const Placeholder = ({ program, maximiseWindow }) => {
+    const { id, title, fmotion } = program;
 
     const dispatch = useDispatch();
 
     return (
-        <div className={clsx('w-full h-full bg-gray-200')}>
+        <motion.div
+            className={clsx('w-full h-full bg-gray-200')}
+            initial="hidden"
+            animate="visible"
+            variants={fmotion.variants}
+        >
             <div className="flex flex-col h-full border border-gray-500">
                 <div
                     className={clsx(
@@ -30,6 +34,10 @@ const Placeholder = ({ program }) => {
                         </button>
                         <button
                             type="button"
+                            onClick={() => {
+                                console.log('maximise');
+                                maximiseWindow();
+                            }}
                             className="h-full px-4 transition duration-100 hover:bg-gray-200 focus:outline-none"
                         >
                             <SquareIcon className="w-3 h-3" />
@@ -55,7 +63,7 @@ const Placeholder = ({ program }) => {
                     </span>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
