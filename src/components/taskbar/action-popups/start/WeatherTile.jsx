@@ -12,7 +12,7 @@ const WeatherTile = ({ config }) => {
         latitude: 55.2044,
     });
 
-    const weatherUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${coord.latitude}&lon=${coord.longitude}&appid=${API_KEY}&units=metric`;
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${coord.latitude}&lon=${coord.longitude}&appid=${API_KEY}&units=metric`;
     const { response: weather, loading, error } = useFetch(weatherUrl, {});
 
     const { latitude, longitude, error: geoError } = useGeoPosition();
