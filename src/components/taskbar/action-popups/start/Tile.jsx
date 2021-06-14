@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { toggleProcess } from '../../../../stores/processes.slice';
+import { handleStartProcess } from '../../../../stores/actions';
 import { match } from '../../../../util/match';
 import WeatherTile from './WeatherTile';
 
@@ -20,7 +20,7 @@ export const Placeholder = ({ config }) => {
     const dispatch = useDispatch();
     return (
         <button
-            onClick={() => dispatch(toggleProcess(id))}
+            onClick={() => handleStartProcess(dispatch, config)}
             key={title}
             style={{
                 gridColumn: `span ${tile['col-span']} / span ${tile['col-span']}`,

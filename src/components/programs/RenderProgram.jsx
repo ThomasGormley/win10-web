@@ -4,17 +4,19 @@ import { match } from '../../util/match';
 const VSCode = lazy(() => import('./vscode/VSCode'));
 const Placeholder = lazy(() => import('./Placeholder'));
 
-const RenderProgram = ({ program }) => (
+const RenderProgram = ({ program, maximiseWindow }) => (
     <Suspense fallback={<Fragment></Fragment>}>
         {match(program.id, {
-            explorer() {
-                return <Placeholder program={program} />;
-            },
             vscode() {
-                return <VSCode />;
+                return <VSCode maximiseWindow={maximiseWindow} />;
             },
             [match.__]() {
-                return <Placeholder program={program} />;
+                return (
+                    <Placeholder
+                        program={program}
+                        maximiseWindow={maximiseWindow}
+                    />
+                );
             },
         })}
     </Suspense>

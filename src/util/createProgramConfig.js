@@ -1,6 +1,7 @@
 export const createProgramConfig = (config) => ({
     shouldOpenWindow: true,
     resizable: true,
+    isPinnedToTaskbar: false,
 
     height: 400,
     width: 600,
@@ -17,5 +18,13 @@ export const createProgramConfig = (config) => ({
         'col-span': 1,
         'row-span': 1,
     },
+
+    fmotion: {
+        variants: {
+            hidden: { scale: '50%' },
+            visible: { scale: '100%' },
+        },
+    },
+
     ...config,
 });

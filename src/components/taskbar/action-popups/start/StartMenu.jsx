@@ -67,7 +67,10 @@ const StartMenu = () => {
             </div>
 
             {/* Programs List */}
-            <div className="flex flex-col flex-shrink-0 pt-2 space-y-2 overflow-y-auto">
+            <div
+                className="flex flex-col flex-shrink-0 pt-2 space-y-2 overflow-y-hidden hover:overflow-y-auto"
+                id="search-programs-list"
+            >
                 <ProgramsList />
             </div>
 

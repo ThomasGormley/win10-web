@@ -12,7 +12,7 @@ const WeatherTile = ({ config }) => {
         latitude: 55.2044,
     });
 
-    const weatherUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${coord.latitude}&lon=${coord.longitude}&appid=${API_KEY}&units=metric`;
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${coord.latitude}&lon=${coord.longitude}&appid=${API_KEY}&units=metric`;
     const { response: weather, loading, error } = useFetch(weatherUrl, {});
 
     const { latitude, longitude, error: geoError } = useGeoPosition();
@@ -28,7 +28,7 @@ const WeatherTile = ({ config }) => {
 
     return (
         <div
-            className="flex flex-col w-full h-24 bg-blue-600"
+            className="flex flex-col w-full h-24 bg-blue-600 hover:ring hover:ring-white hover:ring-inset hover:ring-opacity-60 hover:transition hover:duration-75"
             style={{
                 gridColumn: `span ${tile['col-span']} / span ${tile['col-span']}`,
                 gridRow: `span ${tile['row-span']} / span ${tile['row-span']}`,

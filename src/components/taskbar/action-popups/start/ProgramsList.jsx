@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { programsConfig } from '../../../../data/programs';
-import { toggleProcess } from '../../../../stores/processes.slice';
+import { handleStartProcess } from '../../../../stores/actions';
 
 const alphabet = [
     'A',
@@ -49,12 +49,14 @@ const ProgramsList = () => {
                     </div>
                 </div>
 
-                {programsWithThisLetter.map(({ id, title }) => (
+                {programsWithThisLetter.map(({ id, title, ...config }) => (
                     <button
                         key={id}
                         type="button"
-                        onClick={() => dispatch(toggleProcess(id))}
-                        className="flex w-full py-2 pl-1 pr-4 cursor-default hover:transition hover:duration-100 hover:ring-white hover:ring-1 hover:ring-inset hover:ring-opacity-20 hover:bg-white hover:bg-opacity-20 hover"
+                        onClick={() =>
+                            handleStartProcess(dispatch, { id, ...config })
+                        }
+                        className="flex w-full py-2 pl-1 pr-16 cursor-default hover:transition hover:duration-100 hover:ring-white hover:ring-1 hover:ring-inset hover:ring-opacity-20 hover:bg-white hover:bg-opacity-20 hover"
                     >
                         <div className="flex items-center space-x-2 ">
                             <img

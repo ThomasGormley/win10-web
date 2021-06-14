@@ -6,6 +6,7 @@ import Window from './Window';
 
 const DisplayArea = () => {
     const processes = useSelector((state) => state.processes);
+
     const [focusedWindow, setFocusedWindow] = useState('');
     const [focusedWindowZIndex, setFocusedWindowZIndex] = useState(-2);
 

@@ -1,0 +1,16 @@
+#search-programs-list::-webkit-scrollbar {
+    width: 2px; /* width of the entire scrollbar */
+}
+
+#search-programs-list::-webkit-scrollbar:hover {
+    width: 8px; /* width of the entire scrollbar */
+}
+
+#search-programs-list::-webkit-scrollbar-thumb {
+    background-color: #b0b0bb; /* color of the scroll thumb */
+    border-radius: 10px; /* roundness of the scroll thumb */
+}
+#search-programs-list::-webkit-scrollbar-thumb:hover {
+    background-color: #52525b; /* color of the scroll thumb */
+    border-radius: 50px; /* roundness of the scroll thumb */
+}

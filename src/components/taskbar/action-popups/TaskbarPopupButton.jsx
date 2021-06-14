@@ -6,19 +6,24 @@ import { usePopper } from 'react-popper';
 import { match } from '../../../util/match';
 import SystemTrayMenu from '../action-popups/system-tray/SystemTrayMenu';
 import ClockMenu from '../action-popups/clock/ClockMenu';
+import NotificationsMenu from '../action-popups/notifications/NotificationsMenu';
 import SearchMenu from './search/SearchMenu';
 import { searchPopupConfig } from '../../../data/taskbar/search.config';
 import { startPopupConfig } from '../../../data/taskbar/start.config';
 import StartMenu from './start/StartMenu';
+import { notificationsPopupConfig } from '../../../data/taskbar';
 
-const TaskbarPopupButton = ({ tooltip = '', width, id, placement }) => {
+const TaskbarPopupButton = ({ config }) => {
+    const { tooltip = '', width, id, placement, strategy } = config;
     const isSearchPopup = id === searchPopupConfig.id;
     const isStartPopup = id === startPopupConfig.id;
+    const isNotificationsPopup = id === notificationsPopupConfig.id;
 
     const [referenceElement, setReferenceElement] = useState();
     const [popperElement, setPopperElement] = useState();
     const { styles, attributes } = usePopper(referenceElement, popperElement, {
         placement,
+        strategy,
     });
     const backgroundStyle = {
         background: `${
@@ -30,6 +35,9 @@ const TaskbarPopupButton = ({ tooltip = '', width, id, placement }) => {
         }`,
         backdropFilter: 'blur(8.0px)',
         WebkitBackdropFilter: 'blur(10.0px)',
+        boxShadow: '0 -1px 10px 0 rgba( 0, 0, 0, 0.2 )',
+        border: '1px solid rgba( 255, 255, 255, 0.18 )',
+        ...(!isNotificationsPopup ? styles.popper : undefined),
     };
     return (
         <Popover as={Fragment}>
@@ -40,8 +48,8 @@ const TaskbarPopupButton = ({ tooltip = '', width, id, placement }) => {
                         ref={setReferenceElement}
                         className={clsx(
                             'h-10 relative cursor-default transition duration-150 hover:bg-white hover:bg-opacity-[0.15] text-gray-100 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gray-100 focus:outline-none',
-                            { [width]: width },
-                            { 'hover:text-[#00ADEF]': isStartPopup },
+                            width && width,
+                            isStartPopup && 'hover:text-[#00ADEF]',
                         )}
                     >
                         <span className="flex justify-center">
@@ -52,24 +60,24 @@ const TaskbarPopupButton = ({ tooltip = '', width, id, placement }) => {
                     {open && (
                         <Transition
                             enter="transition duration-250 ease-out"
-                            enterFrom=" opacity-0"
+                            enterFrom="right-0 opacity-0"
                             enterTo=" opacity-100"
                             leave="transition duration-75 ease-out"
                             leaveFrom=" opacity-100"
                             leaveTo=" opacity-0"
                         >
                             <Popover.Panel
+                                static
                                 ref={setPopperElement}
                                 style={{
-                                    ...styles.popper,
-                                    boxShadow:
-                                        '0 -1px 10px 0 rgba( 0, 0, 0, 0.2 )',
-
-                                    border: '1px solid rgba( 255, 255, 255, 0.18 )',
                                     ...backgroundStyle,
                                 }}
                                 {...attributes.popper}
-                                className="z-10 w-auto h-auto bg-white"
+                                className={clsx(
+                                    'z-[500]  w-auto h-auto bg-white',
+                                    isNotificationsPopup &&
+                                        'absolute top-0 right-0 bottom-0',
+                                )}
                             >
                                 {match(id, {
                                     start() {
@@ -83,6 +91,9 @@ const TaskbarPopupButton = ({ tooltip = '', width, id, placement }) => {
                                     },
                                     clock() {
                                         return <ClockMenu />;
+                                    },
+                                    notifications() {
+                                        return <NotificationsMenu />;
                                     },
                                 })}
                             </Popover.Panel>
